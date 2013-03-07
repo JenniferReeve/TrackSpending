@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Spending Tracker</title>
+  
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/jquery-ui-1.10.0.custom.min.css">
+  
+  <script src="./js/json2.js"></script>
+  <script src="./js/jquery-1.9.0.js"></script>
+  <script src="./js/underscore.js"></script>
+  <script src="./js/backbone.js"></script>
+  <script src="./js/backbone-localstorage.js"></script>
+  <script src="./js/spending.js"></script>
+  <script src="./js/jquery-ui-1.10.0.custom.min.js"></script>
+  
+</head>
+
+<body>
+
+  <div id="todoapp">
+
+    <header>
+      <h1>Spending Tracker</h1>
+	  <input id="spending-description" class="description" type="text" placeholder="What did you spend money on?" name="description">
+	  <input id="spending-date" type="text" name="dateSpent" class="date" placeholder="When did you spend it?">
+	  <input id="spending-amount" type="text" name="amount" class="amount" placeholder="How much?">
+    </header>
+
+    <section id="main" style="display: block;">
+      <ul id="todo-list">
+		<li class="heading">
+			<label class="label-date">Date</label>
+			<label class="label-description">Description</label>
+			<label class="label-spent">Spent</label>
+			<label class="label-amount">Amount</label>
+		</li>
+	  </ul>
+    </section>
+
+    <footer style="display: block;">
+    
+    <div class="todo-count"></div>
+  </footer>
+
+  </div>
+
+  <div id="instructions">
+    Double-click to edit.
+  </div>
+  
+<!-- Templates -->
+<script type="text/template" id="item-template">
+	<div class="view">
+	  <label class="label-date" ><%- dateSpent %></label>
+	  <label class="label-description" ><%- description %></label>
+	  <label class="label-spent"><%- spent %></label>
+	  <label class="label-amount"><%- amount %></label>
+	  <a class="destroy"></a>
+	</div>
+	<input class="edit description" type="text" value="<%- description %>" name="description" /> 
+	<input class="edit date" type="text" value="<%- dateSpent %>" name="dateSpent" />
+	<input class="edit amount" type="text" value="<%- amount %>" name="amount" /> 
+	</script>
+
+	<script type="text/template" id="stats-template">
+	<div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
+</script>
+
+</body>
+</html>
